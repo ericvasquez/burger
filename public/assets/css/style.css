@@ -1,14 +1,14 @@
 li {
   padding: 5px;
   margin: 5px;
-  background: blue;
+  /* background: blue; */
 }
 
 .label {
   font-weight: bold;
 }
 
-.create-update-form {
+.create-form {
   padding: 5px;
   margin: 5px;
   background: aqua;

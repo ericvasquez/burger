@@ -6,18 +6,23 @@ var burger = require("../models/burger.js");
 router.get("/", function (req, res) {
   burger.all(function (data) {
     var hbsObject = {
-      burgers: data
+      burgers: data,
     };
-    console.log(hbsObject);
+    // console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
 
 router.post("/api/burgers", function (req, res) {
-  burger.create(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function (result) {
-    // Send back the ID
-    res.json({ id: result.insertId });
-  });
+  burger.create(
+    ["burger_name", "devoured"],
+    [req.body.burger_name, req.body.devoured],
+    function (result) {
+      // Send back the ID
+      res.json({ id: result.insertId });
+    }
+  );
+  console.log(`Created the ${req.body.burger_name} and ${req.body.devoured}`);
 });
 
 router.put("/api/burgers/:id", function (req, res) {
@@ -27,7 +32,7 @@ router.put("/api/burgers/:id", function (req, res) {
 
   burger.update(
     {
-      devoured: req.body.devoured
+      devoured: req.body.devoured,
     },
     condition,
     function (result) {
@@ -36,7 +41,6 @@ router.put("/api/burgers/:id", function (req, res) {
         return res.status(404).end();
       }
       res.status(200).end();
-
     }
   );
 });
