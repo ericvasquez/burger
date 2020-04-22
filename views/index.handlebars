@@ -1,35 +1,57 @@
-<h1>Eat Da Burger</h1>
 
-<h2>Burgers Eaten</h2>
+<h1 class="text-center">Eat Da Burger</h1>
 
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      <li>
-        {{burger_name}}
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
+<div class="row mt-3">
+  <nav class="navbar navbar-light bg-light w-100">
+    <span class="navbar-brand h1 w-100 text-center">Burgers Eaten</span>
+  </nav>
+  <div class="card-deck">
+    {{#each burgers}}
+      {{#if devoured}}
+        <div class="col-2 mt-1">
+          <div class="card text-center">
+            <h5 class="card-header">{{burger_name}}</h5>
+            <div class="card-body">
+              <p class="card-text">You ate it</p>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+</div>
 
-<h2>Burgers that have yet to be eaten!</h2>
 
-<ul>
+
+
+<div class="row">
+  <h2 class="col-12 text-center">Burgers that have yet to be eaten!</h2>
   {{#each burgers}}
     {{#unless devoured}}
-      <li>
-        {{burger_name}}
-        <button data-id="{{this.id}}" class="eat">Eat Da Burger</button>
-      </li>
+      <div class="col-3">
+        <div class="card text-center ">
+          <h5 class="card-header">{{burger_name}}</h5>
+          <div class="card-body">
+            <button class="eat btn btn-primary btn-sm" data-id="{{this.id}}">Eat Da Burger</button>
+          </div>
+        </div>
+      </div>
     {{/unless}}
   {{/each}}
-</ul>
+</div>
 
 
-<form class="create-form">
-  <h2>Add a Burger</h2>
-  <label for="burger_name">Burger Name</label>
-  <input type="text" id="newBurger" name="burger_name">
 
-  <button type="submit">Get It</button>
-</form>
+
+<div class="row">
+  <div class="card bg-primary text-center card-form">
+    <div class="card-body">
+      <h2>Add a Burger</h2>
+      <form class="create-form">
+        <label for="burger_name">Burger Name</label>
+        <input type="text" id="newBurger" name="burger_name">
+        <button type="submit">Get It</button>
+      </form>
+    </div>
+  </div>
+</div>
