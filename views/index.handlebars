@@ -5,20 +5,15 @@
   <nav class="navbar navbar-light bg-light w-100">
     <span class="navbar-brand h1 w-100 text-center">Burgers Eaten</span>
   </nav>
-  <div class="card-deck">
+  <ol>
     {{#each burgers}}
       {{#if devoured}}
-        <div class="col-2 mt-1">
-          <div class="card text-center">
-            <h5 class="card-header">{{burger_name}}</h5>
-            <div class="card-body">
-              <p class="card-text">You ate it</p>
-            </div>
-          </div>
-        </div>
+        <li>
+            {{burger_name}}
+        </li>
       {{/if}}
     {{/each}}
-  </div>
+  </ol>
 </div>
 
 
@@ -32,7 +27,7 @@
         <div class="card text-center ">
           <h5 class="card-header">{{burger_name}}</h5>
           <div class="card-body">
-            <button class="eat btn btn-primary btn-sm" data-id="{{this.id}}">Eat Da Burger</button>
+            <button class="eat btn btn-primary btn-sm" data-id="{{this.id}}">Eat It</button>
           </div>
         </div>
       </div>
